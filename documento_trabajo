@@ -1,0 +1,314 @@
+Enunciados
+---
+title: 'Trabajo Individual: Teoría de la Decisión bajo Incertidumbre'
+author: "Adrián Avelino Martín"
+subtitle: Documento de Enunciados y Cuestionarios
+output:
+  pdf_document:
+    toc: true
+    toc_depth: '2'
+  typst:
+    toc: true
+  html_document:
+    toc: true
+    toc_depth: 2
+    theme: readable
+---
+
+# Introducción
+
+El presente documento recoge los enunciados de dos problemas inventados correspondientes al módulo de **Teoría de la Decisión bajo Incertidumbre**. 
+
+- El **Problema 1** consiste en una matriz de decisión con 4 alternativas y 3 estados de la naturaleza, a resolver tanto en situación **favorable** (beneficios) como **desfavorable** (costes).
+- El **Problema 2** aborda un contexto del mundo real (sector agrotecnológico), planteando una toma de decisiones de inversión estratégica bajo incertidumbre.
+
+Al final de cada problema se incluye un cuestionario de **5 preguntas de selección múltiple (Verdadero o Falso)**.
+
+---
+
+# Problema 1: Matriz de Decisión Numérica (Favorable y Desfavorable)
+
+Dada la siguiente matriz de valoración $X$, donde las filas representan cuatro alternativas de decisión ($d_1, d_2, d_3, d_4$) y las columnas representan tres posibles estados de la naturaleza ($e_1, e_2, e_3$):
+
+$$
+X = \begin{pmatrix}
+10 & 4 & 8 \\
+2 & 12 & 6 \\
+7 & 7 & 7 \\
+0 & 15 & 3
+\end{pmatrix}
+$$
+
+Se solicita analizar la toma de decisiones aplicando los seis criterios clásicos de decisión bajo incertidumbre (Wald/Pesimista, Optimista, Hurwicz con coeficiente $\alpha = 0.4$, Savage, Laplace y Punto Ideal), bajo dos presupuestos distintos:
+
+1. **Situación Favorable (Beneficios):** Los valores representan ganancias o rendimientos económicos que el decisor desea maximizar.
+2. **Situación Desfavorable (Costes):** Los valores representan costes, pérdidas o riesgos que el decisor desea minimizar.
+
+---
+
+## Cuestionario del Problema 1 (5 Preguntas V/F)
+
+Indique la veracidad o falsedad de cada una de las siguientes afirmaciones:
+
+1. **Afirmación 1.1:** En situación **favorable** (beneficios), el *Criterio Optimista (Maximax)* selecciona la alternativa $d_4$ alcanzando un valor óptimo de $15$.
+2. **Afirmación 1.2:** Bajo el *Criterio Pesimista de Wald* en situación **desfavorable** (costes), la alternativa óptima elegida es $d_4$.
+3. **Afirmación 1.3:** En situación **favorable** con un coeficiente de optimismo $\alpha = 0.4$, el *Criterio de Hurwicz* selecciona como alternativa óptima a $d_3$.
+4. **Afirmación 1.4:** Según el *Criterio de Laplace* en situación **desfavorable** (costes), la alternativa con menor coste medio esperado es $d_1$.
+5. **Afirmación 1.5:** En el *Criterio del Punto Ideal* en situación **favorable**, el vector ideal de referencia es $(10, 15, 8)$ y la alternativa óptima (más cercana) es $d_3$.
+
+---
+
+# Problema 2: Caso Real - Inversión Estratégica en "AgroTech Soluciones"
+
+La empresa de innovación agrícola **"AgroTech Soluciones S.L."** planea lanzar un nuevo proyecto tecnológico para la próxima campaña agrícola. La dirección ha preseleccionado cuatro alternativas de inversión ($d_1, d_2, d_3, d_4$):
+
+- **$d_1$ (Riego Automatizado):** Implementación de redes de riego inteligente impulsadas por IA.
+- **$d_2$ (Bioplaguicidas):** Desarrollo y comercialización de una nueva línea de bioplaguicidas ecológicos.
+- **$d_3$ (Software de Gestión):** Plataforma integral para la gestión multicultivo.
+- **$d_4$ (Drones de Monitoreo):** Servicio de diagnóstico térmico y multiespectral mediante drones.
+
+El rendimiento económico (beneficios netos esperados en cientos de miles de euros) depende de las condiciones climáticas y de mercado del próximo año, las cuales se resumen en tres estados de la naturaleza ($e_1, e_2, e_3$):
+
+- **$e_1$ (Condiciones Adversas):** Sequía moderada e inflación alta.
+- **$e_2$ (Condiciones Normales):** Clima habitual y estabilidad del mercado agrícola.
+- **$e_3$ (Condiciones Favorables):** Alta pluviosidad y buenos precios en el sector.
+
+La matriz de ganancias netas proyectada (en cientos de miles de euros) se presenta a continuación:
+
+| Alternativa / Estado de la Naturaleza | $e_1$ (Adverso) | $e_2$ (Normal) | $e_3$ (Favorable) |
+| :--- | :---: | :---: | :---: |
+| **$d_1$ (Riego Automatizado)** | 30 | 65 | 80 |
+| **$d_2$ (Bioplaguicidas)** | 10 | 90 | 110 |
+| **$d_3$ (Software de Gestión)** | 45 | 55 | 60 |
+| **$d_4$ (Drones de Monitoreo)** | -15 | 105 | 140 |
+
+Se requiere evaluar la decisión mediante la función global que resuelve de forma simultánea todos los criterios clásicos de incertidumbre (`criterio.Todos`), utilizando un coeficiente de optimismo $\alpha = 0.4$.
+
+---
+
+## Cuestionario del Problema 2 (5 Preguntas V/F)
+
+Indique la veracidad o falsedad de cada una de las siguientes afirmaciones:
+
+1. **Afirmación 2.1:** La alternativa $d_3$ ("Software de Gestión") es la solución óptima según el *Criterio Pesimista (Wald)* debido a que garantiza un beneficio mínimo de $45$ (cientos de miles de euros) en el peor escenario climático.
+2. **Afirmación 2.2:** En la tabla devuelta por `criterio.Todos` (con $\alpha = 0.4$), la alternativa $d_1$ ("Riego Automatizado") resulta ser la opción "Más Veces Óptima".
+3. **Afirmación 2.3:** Según el criterio de arrepentimiento de *Savage*, la máxima pérdida de oportunidad para $d_2$ es de $35$ unidades, siendo esta la alternativa óptima bajo dicho criterio.
+4. **Afirmación 2.4:** De acuerdo con el *Criterio de Laplace*, el proyecto con mayor beneficio medio esperado es $d_2$ ("Bioplaguicidas").
+5. **Afirmación 2.5:** La distancia euclídea al Punto Ideal $(45, 105, 140)$ es menor para la alternativa $d_2$ que para la alternativa $d_4$.
+
+Soluciones:
+---
+title: 'Trabajo Individual: Teoría de la Decisión bajo Incertidumbre'
+author: "Adrián Avelino Martín"
+subtitle: Documento de Soluciones y Código en R
+output:
+  pdf_document:
+    toc: true
+  typst:
+    toc: true
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+    code_folding: show
+---
+# Carga de Funciones y Entorno
+
+Cargamos el script de R `teoriadecision_funciones_incertidumbre.R` donde se encuentran implementadas las funciones necesarias para resolver problemas bajo incertidumbre.
+
+```{r carga_funciones}
+source("teoriadecision_funciones_incertidumbre.R")
+```
+
+---
+
+# RESOLUCIÓN DEL PROBLEMA 1
+
+## Definición del Problema 1
+
+Construimos la matriz de decisión numéricamente definida por:
+
+$$
+X = \begin{pmatrix}
+10 & 4 & 8 \\
+2 & 12 & 6 \\
+7 & 7 & 7 \\
+0 & 15 & 3
+\end{pmatrix}
+$$
+
+```{r definicion_p1}
+tb01 = crea.tablaX(
+  c(10, 4, 8,
+     2, 12, 6,
+     7, 7, 7,
+     0, 15, 3),
+  numalternativas = 4,
+  numestados = 3,
+  nb_alternativas = c("d1", "d2", "d3", "d4"),
+  nb_estados = c("e1", "e2", "e3")
+)
+tb01
+```
+
+---
+
+## Resolución 1.1: Situación Favorable (Beneficios)
+
+A continuación, aplicamos cada función individual de decisión bajo el presupuesto de que los datos representan ganancias a maximizar.
+
+### 1. Criterio de Wald (Pesimista)
+```{r p1_fav_wald}
+sol_p1_fav_wald = criterio.Wald(tb01, favorable = TRUE)
+sol_p1_fav_wald
+```
+
+### 2. Criterio Optimista
+```{r p1_fav_opt}
+sol_p1_fav_opt = criterio.Optimista(tb01, favorable = TRUE)
+sol_p1_fav_opt
+```
+
+### 3. Criterio de Hurwicz ($\alpha = 0.4$)
+```{r p1_fav_hurwicz}
+sol_p1_fav_hurwicz = criterio.Hurwicz(tb01, alfa = 0.4, favorable = TRUE)
+sol_p1_fav_hurwicz
+```
+
+#### Análisis gráfico e intervalos de Hurwicz (Favorable)
+```{r p1_fav_hurwicz_grafico, fig.width=7, fig.height=5}
+dibuja.criterio.Hurwicz_Intervalos(tb01, favorable = TRUE, mostrarGrafico = TRUE)
+```
+
+### 4. Criterio de Savage
+```{r p1_fav_savage}
+sol_p1_fav_savage = criterio.Savage(tb01, favorable = TRUE)
+sol_p1_fav_savage
+```
+
+### 5. Criterio de Laplace
+```{r p1_fav_laplace}
+sol_p1_fav_laplace = criterio.Laplace(tb01, favorable = TRUE)
+sol_p1_fav_laplace
+```
+
+### 6. Criterio del Punto Ideal
+```{r p1_fav_ptoideal}
+sol_p1_fav_ptoideal = criterio.PuntoIdeal(tb01, favorable = TRUE)
+sol_p1_fav_ptoideal
+```
+
+---
+
+## Resolución 1.2: Situación Desfavorable (Costes)
+
+Ahora resolvemos el problema considerando que los datos representan costes o pérdidas a minimizar.
+
+### 1. Criterio de Wald (Pesimista / Minimax Costes)
+```{r p1_desfav_wald}
+sol_p1_des_wald = criterio.Wald(tb01, favorable = FALSE)
+sol_p1_des_wald
+```
+
+### 2. Criterio Optimista (Minimin Costes)
+```{r p1_desfav_opt}
+sol_p1_des_opt = criterio.Optimista(tb01, favorable = FALSE)
+sol_p1_des_opt
+```
+
+### 3. Criterio de Hurwicz ($\alpha = 0.4$)
+```{r p1_desfav_hurwicz}
+sol_p1_des_hurwicz = criterio.Hurwicz(tb01, alfa = 0.4, favorable = FALSE)
+sol_p1_des_hurwicz
+```
+
+#### Análisis gráfico e intervalos de Hurwicz (Desfavorable)
+```{r p1_desfav_hurwicz_grafico, fig.width=7, fig.height=5}
+dibuja.criterio.Hurwicz_Intervalos(tb01, favorable = FALSE, mostrarGrafico = TRUE)
+```
+
+### 4. Criterio de Savage 
+```{r p1_desfav_savage}
+sol_p1_des_savage = criterio.Savage(tb01, favorable = FALSE)
+sol_p1_des_savage
+```
+
+### 5. Criterio de Laplace
+```{r p1_desfav_laplace}
+sol_p1_des_laplace = criterio.Laplace(tb01, favorable = FALSE)
+sol_p1_des_laplace
+```
+
+### 6. Criterio del Punto Ideal
+```{r p1_desfav_ptoideal}
+sol_p1_des_ptoideal = criterio.PuntoIdeal(tb01, favorable = FALSE)
+sol_p1_des_ptoideal
+```
+
+---
+
+## Respuestas Verdaderas / Falsas del Cuestionario del Problema 1
+
+| Pregunta | Respuesta | Justificación Detallada |
+| :---: | :---: | :--- |
+| **1.1** | **VERDADERA** | El valor máximo global de la matriz es $15$, alcanzado por $d_4$ en el estado $e_2$. Así, $\max_i (\max_j x_{ij}) = 15 \Rightarrow d_4$. |
+| **1.2** | **FALSA** | En costes (desfavorable), el criterio Pesimista (Minimax) evalúa los costes máximos de cada alternativa: $d_1: 10$, $d_2: 12$, $d_3: 7$, $d_4: 15$. El mínimo coste máximo es $7$, que corresponde a **$d_3$**, no a $d_4$. |
+| **1.3** | **VERDADERA** | Los valores de Hurwicz con $\alpha = 0.4$ en beneficios son:<br>$H(d_1) = 0.4(10)+0.6(4) = 6.4$<br>$H(d_2) = 0.4(12)+0.6(2) = 6.0$<br>$H(d_3) = 0.4(7)+0.6(7) = 7.0$<br>$H(d_4) = 0.4(15)+0.6(0) = 6.0$.<br>El valor óptimo es $\max(6.4, 6.0, 7.0, 6.0) = 7.0$, que corresponde a **$d_3$**. |
+| **1.4** | **FALSA** | Los costes medios esperados son $d_1: 7.333$, $d_2: 6.667$, $d_3: 7.000$, $d_4: 6.000$. En minimización de costes, la opción óptima es la que tiene la media menor, es decir, **$d_4$** ($6.000$), no $d_1$. |
+| **1.5** | **VERDADERA** | El punto ideal en beneficios se forma tomando el máximo por columna: $(10, 15, 8)$. Las distancias euclídeas son: $d(d_1) = 11.0$, $d(d_2) = \sqrt{77} \approx 8.775$, $d(d_3) = \sqrt{74} \approx 8.602$, $d(d_4) = \sqrt{125} \approx 11.180$. La menor distancia es $8.602$, correspondiente a **$d_3$**. |
+
+---
+
+# RESOLUCIÓN DEL PROBLEMA 2
+
+## Definición del Problema Real ("AgroTech Soluciones")
+
+Definimos la matriz de ganancias para el problema:
+
+```{r definicion_p2}
+tb02 = crea.tablaX(
+  c(30,  65,  80,
+    10,  90, 110,
+    45,  55,  60,
+   -15, 105, 140),
+  numalternativas = 4,
+  numestados = 3,
+  nb_alternativas = c("d1_Riego", "d2_Bioplaguicidas", "d3_Software", "d4_Drones"),
+  nb_estados = c("e1_Adverso", "e2_Normal", "e3_Favorable")
+)
+tb02
+```
+
+---
+
+## Resolución Global con `criterio.Todos`
+
+Se trata de un problema en el que se desea elegir la alternativa con la que se obtenga mayor beneficio. Por tanto, se resolvera solamente para el caso favorable (Beneficios) fijando el factor de pesimismo $\alpha = 0.4$.
+
+```{r p2_resolucion_todos}
+sol_p2_todos = criterio.Todos(tb02, alfa = 0.4, favorable = TRUE)
+sol_p2_todos
+```
+
+---
+
+## Análisis Complementario de Hurwicz para el Problema 2
+
+Obtenemos los intervalos de alfa e identificamos las alternativas óptimas según el grado de optimismo del decisor:
+
+```{r p2_hurwicz_intervalos, fig.width=7, fig.height=5}
+sol_p2_intervalos = dibuja.criterio.Hurwicz_Intervalos(tb02, favorable = TRUE, mostrarGrafico = TRUE)
+sol_p2_intervalos
+```
+
+---
+
+## Respuestas Verdaderas / Falsas del Cuestionario del Problema 2
+
+| Pregunta | Respuesta | Justificación Detallada |
+| :---: | :---: | :--- |
+| **2.1** | **VERDADERA** | Los mínimos beneficios garantizados en el peor escenario ($e_1$) son: $d_1: 30$, $d_2: 10$, $d_3: 45$, $d_4: -15$. El Criterio Pesimista de Wald elige el máximo de estos valores, que es $45$, correspondiente a **$d_3$ ("Software de Gestión")**. |
+| **2.2** | **FALSA** | En la tabla resumen de `criterio.Todos`, las alternativas óptimas son: Wald ($d_3$), Optimista ($d_4$), Hurwicz ($d_3$), Savage ($d_2$), Laplace ($d_4$), Punto Ideal ($d_2$). Las alternativas $d_2, d_3, d_4$ son óptimas $2$ veces cada una, mientras que $d_1$ aparece **0 veces**. Por lo tanto, $d_1$ no es la más veces óptima. |
+| **2.3** | **VERDADERA** | Las ganancias máximas por columna son $e_1: 45$, $e_2: 105$, $e_3: 140$. La matriz de arrepentimientos (Savage) es:<br>- $d_1: (15, 40, 60) \rightarrow \max = 60$<br>- $d_2: (35, 15, 30) \rightarrow \max = 35$<br>- $d_3: (0, 50, 80) \rightarrow \max = 80$<br>- $d_4: (60, 0, 0) \rightarrow \max = 60$.<br>Para obtener el menor arrepentimiento se debe elegir la alternativa $d_2$, ya que $\min(60, 35, 80, 60) = 35$. Por tanto, **$d_2$ es la solución óptima de Savage**. |
+| **2.4** | **FALSA** | Los beneficios medios esperados (Laplace) para cada proyecto son:<br>- $d_1: (30+65+80)/3 = 58.33$<br>- $d_2: (10+90+110)/3 = 70.00$<br>- $d_3: (45+55+60)/3 = 53.33$<br>- $d_4: (-15+105+140)/3 = 76.67$.<br>El valor máximo medio corresponde a **$d_4$ ("Drones de Monitoreo")** con $76.67$, no a $d_2$. |
+| **2.5** | **VERDADERA** | El Punto Ideal es $(45, 105, 140)$. La distancia para $d_2$ es $d(d_2) = \sqrt{(45-10)^2 + (105-90)^2 + (140-110)^2} = \sqrt{1225+225+900} = \sqrt{2350} \approx 48.48$. La distancia para $d_4$ es $d(d_4) = \sqrt{(45 - (-15))^2 + 0 + 0} = \sqrt{3600} = 60.00$. Como $48.48 < 60.00$, la distancia es **efectivamente menor para $d_2$**. |
