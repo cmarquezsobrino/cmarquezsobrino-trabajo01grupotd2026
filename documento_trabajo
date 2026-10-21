@@ -96,6 +96,54 @@ Indique la veracidad o falsedad de cada una de las siguientes afirmaciones:
 4. **Afirmación 2.4:** De acuerdo con el *Criterio de Laplace*, el proyecto con mayor beneficio medio esperado es $d_2$ ("Bioplaguicidas").
 5. **Afirmación 2.5:** La distancia euclídea al Punto Ideal $(45, 105, 140)$ es menor para la alternativa $d_2$ que para la alternativa $d_4$.
 
+# Problema 3: Matriz de Decisión Numérica 2.0 (Favorable y Desfavorable)
+
+Dada la siguiente matriz de valoración $X$, donde las filas representan cuatro alternativas de decisión ($d_1, d_2, d_3, d_4$) y las columnas representan tres posibles estados de la naturaleza ($e_1, e_2, e_3, e_4$):
+
+$$
+X = \begin{pmatrix}
+1 & 7 & 3 & 0 \\
+-2 & 1 & 5 & 4 \\
+6 & -8 & 7 & 2 \\
+-5 & 0 & 3 & 1
+\end{pmatrix}
+$$
+Se solicita analizar la toma de decisiones aplicando los seis criterios clásicos de decisión bajo incertidumbre (Wald/Pesimista, Optimista, Hurwicz con coeficiente $\alpha = 0.5$, Savage, Laplace y Punto Ideal), bajo dos presupuestos distintos:
+
+1. **Situación Favorable (Beneficios):** Los valores representan ganancias o rendimientos económicos que el decisor desea maximizar.
+2. **Situación Desfavorable (Costes):** Los valores representan costes, pérdidas o riesgos que el decisor desea minimizar.
+
+---
+
+## Cuestionario del Problema 3 (5 Preguntas V/F)
+
+Indique la veracidad o falsedad de cada una de las siguientes afirmaciones:
+
+1. **Afirmación 1.1:**  Segùn el **Criterio de Wald**, la mejor alternativa es la $d_1$ en el caso **favorable**.
+2. **Afirmación 1.2:** La alternativa $d_2$ es la mejor segùn màs de 1 criterio en el caso **favorable**.
+3. **Afirmación 1.3:** La alternativa $d_3$ no es elegida en ningùn criterio en el caso **desfavorable**.
+4. **Afirmación 1.4:** La alternativa $d_4$ es la mejor según el **Criterio Optimista** en el **caso favorable**.
+5. **Afirmación 1.5:** La alternativa $d_1$ es la mejor segùn al menos 1 criterio en el caso **desfavorable**.
+
+---
+
+# Problema 4: Caso Real - Elecciòn de gimnasio
+
+Luca y Mario querrían inscribirse en el gimnasio. El gimnasio **McFit** ofrece un paquete de **30 euros** al mes durante los primeros **6 meses**, para pasar después a **50 euros** al mes; en cambio, el gimnasio Sway ofrece un paquete con el primer mes **gratis**, para pasar después a **40 euros** al mes. Ambos quieren ir durante **1 año** para ponerse más fuertes. Sin embargo, nunca han sido constantes con el ejercicio físico, así que si no lo fueran podrían dejarlo después de los primeros **6 meses**. Luca confía en ello, mientras que Mario es más prudente, de hecho quiere estar seguro de arrepentirse lo menos posible de su elección.
+Se requiere evaluar la decisión mediante la función global que resuelve de forma simultánea todos los criterios clásicos de incertidumbre (`criterio.Todos`), utilizando un coeficiente de optimismo $\alpha = 0.5$.
+
+---
+
+## Cuestionario del Problema 4 (5 Preguntas V/F)
+
+Indique la veracidad o falsedad de cada una de las siguientes afirmaciones:
+
+1. **Afirmación 4.1:** Luca elige segùn el **Critierio Optimista**, aunque va a elegir el gimnasio **McFit**.
+2. **Afirmación 4.2:** El gimnasio **McFit** resulta seleccionada por más criterios que el gimnasio **Sway**.
+3. **Afirmación 4.3:** Mario no es ni pesimista ni optimista, asì va a elegir el gimnasio segùn el **Criterio de Hurwicz** con  $\alpha=0{,}5$.
+4. **Afirmación 4.4:** Mario elige segùn el **Criterio de Savage**, aunque va a elegir el gimnasio **McFit**.
+5. **Afirmación 4.5:** Luca va a elegir el gimnasio **Sway** y Luca va a elegir el gimnasio **McFit**.
+
 Soluciones:
 ---
 title: 'Trabajo Individual: Teoría de la Decisión bajo Incertidumbre'
@@ -312,3 +360,191 @@ sol_p2_intervalos
 | **2.3** | **VERDADERA** | Las ganancias máximas por columna son $e_1: 45$, $e_2: 105$, $e_3: 140$. La matriz de arrepentimientos (Savage) es:<br>- $d_1: (15, 40, 60) \rightarrow \max = 60$<br>- $d_2: (35, 15, 30) \rightarrow \max = 35$<br>- $d_3: (0, 50, 80) \rightarrow \max = 80$<br>- $d_4: (60, 0, 0) \rightarrow \max = 60$.<br>Para obtener el menor arrepentimiento se debe elegir la alternativa $d_2$, ya que $\min(60, 35, 80, 60) = 35$. Por tanto, **$d_2$ es la solución óptima de Savage**. |
 | **2.4** | **FALSA** | Los beneficios medios esperados (Laplace) para cada proyecto son:<br>- $d_1: (30+65+80)/3 = 58.33$<br>- $d_2: (10+90+110)/3 = 70.00$<br>- $d_3: (45+55+60)/3 = 53.33$<br>- $d_4: (-15+105+140)/3 = 76.67$.<br>El valor máximo medio corresponde a **$d_4$ ("Drones de Monitoreo")** con $76.67$, no a $d_2$. |
 | **2.5** | **VERDADERA** | El Punto Ideal es $(45, 105, 140)$. La distancia para $d_2$ es $d(d_2) = \sqrt{(45-10)^2 + (105-90)^2 + (140-110)^2} = \sqrt{1225+225+900} = \sqrt{2350} \approx 48.48$. La distancia para $d_4$ es $d(d_4) = \sqrt{(45 - (-15))^2 + 0 + 0} = \sqrt{3600} = 60.00$. Como $48.48 < 60.00$, la distancia es **efectivamente menor para $d_2$**. |
+
+# RESOLUCIÓN DEL PROBLEMA 3
+
+## Definición del Problema 3
+
+Construimos la matriz de decisión numéricamente definida por:
+
+$$
+X = \begin{pmatrix}
+10 & 4 & 8 \\
+2 & 12 & 6 \\
+7 & 7 & 7 \\
+0 & 15 & 3
+\end{pmatrix}
+$$
+
+
+```{r definicion_p3}
+tb03 = crea.tablaX(c(1,7,3,0,
+                       -2,1,5,4,
+                       6,-8,7,2,
+                       -5,0,3,-1), numalternativas = 4, numestados = 4)
+tb03
+```
+
+---
+
+## Resolución 3.1: Situación Favorable (Beneficios)
+
+A continuación, aplicamos cada función individual de decisión bajo el presupuesto de que los datos representan ganancias a maximizar.
+
+### 1. Criterio de Wald (Pesimista)
+```{r p3_fav_wald}
+sol_p3_fav_wald = criterio.Wald(tb01, favorable = TRUE)
+sol_p3_fav_wald
+```
+
+### 2. Criterio Optimista
+```{r p3_fav_opt}
+sol_p3_fav_opt = criterio.Optimista(tb03, favorable = TRUE)
+sol_p3_fav_opt
+```
+
+### 3. Criterio de Hurwicz ($\alpha = 0.5$)
+```{r p3_fav_hurwicz}
+sol_p3_fav_hurwicz = criterio.Hurwicz(tb03, alfa = 0.5, favorable = TRUE)
+sol_p3_fav_hurwicz
+```
+
+#### Análisis gráfico e intervalos de Hurwicz (Favorable)
+```{r p3_fav_hurwicz_grafico, fig.width=7, fig.height=5}
+dibuja.criterio.Hurwicz_Intervalos(tb03, favorable = TRUE, mostrarGrafico = TRUE)
+```
+
+### 4. Criterio de Savage
+```{r p3_fav_savage}
+sol_p3_fav_savage = criterio.Savage(tb03, favorable = TRUE)
+sol_p3_fav_savage
+```
+
+### 5. Criterio de Laplace
+```{r p3_fav_laplace}
+sol_p3_fav_laplace = criterio.Laplace(tb03, favorable = TRUE)
+sol_p3_fav_laplace
+```
+
+### 6. Criterio del Punto Ideal
+```{r p3_fav_ptoideal}
+sol_p3_fav_ptoideal = criterio.PuntoIdeal(tb03, favorable = TRUE)
+sol_p3_fav_ptoideal
+```
+
+---
+
+## Resolución 3.2: Situación Desfavorable (Costes)
+
+Ahora resolvemos el problema considerando que los datos representan costes o pérdidas a minimizar.
+
+### 1. Criterio de Wald (Pesimista / Minimax Costes)
+```{r p3_desfav_wald}
+sol_p3_des_wald = criterio.Wald(tb03, favorable = FALSE)
+sol_p3_des_wald
+```
+
+### 2. Criterio Optimista (Minimin Costes)
+```{r p3_desfav_opt}
+sol_p3_des_opt = criterio.Optimista(tb03, favorable = FALSE)
+sol_p3_des_opt
+```
+
+### 3. Criterio de Hurwicz ($\alpha = 0.5$)
+```{r p3_desfav_hurwicz}
+sol_p3_des_hurwicz = criterio.Hurwicz(tb03, alfa = 0.5, favorable = FALSE)
+sol_p3_des_hurwicz
+```
+
+#### Análisis gráfico e intervalos de Hurwicz (Desfavorable)
+```{r p3_desfav_hurwicz_grafico, fig.width=7, fig.height=5}
+dibuja.criterio.Hurwicz_Intervalos(tb03, favorable = FALSE, mostrarGrafico = TRUE)
+```
+
+### 4. Criterio de Savage 
+```{r p3_desfav_savage}
+sol_p1_des_savage = criterio.Savage(tb03, favorable = FALSE)
+sol_p1_des_savage
+```
+
+### 5. Criterio de Laplace
+```{r p3_desfav_laplace}
+sol_p3_des_laplace = criterio.Laplace(tb03, favorable = FALSE)
+sol_p3_des_laplace
+```
+
+### 6. Criterio del Punto Ideal
+```{r p3_desfav_ptoideal}
+sol_p3_des_ptoideal = criterio.PuntoIdeal(tb03, favorable = FALSE)
+sol_p3_des_ptoideal
+```
+
+---
+
+## Respuestas Verdaderas / Falsas del Cuestionario del Problema 3
+
+| Pregunta | Respuesta | Justificación Detallada |
+| :---: | :---: | :--- |
+| **3.1** | **VERDADERA** | El valor mìnimo global entre los maximos para cada fila de la matriz es $3$, alcanzado por $d_4$ en el estado $e_3$. Así, $\max_i (\max_j x_{ij}) = 3 \Rightarrow d_4$. |
+| **3.2** | **FALSA** | Es evidente que la alternativa $d_2$ no resulta como la mejor en ningùn criterio |
+| **3.3** | **VERDADERA** | El valor mìnimo global de la matriz es $-8$, alcanzado por $d_3$ en el estado $e_2$. Así, $\min_i (\min_j x_{ij}) = 7 \Rightarrow (d_1, d_3)$ |
+| **3.4** | **FALSA** | El valor máximo global de la matriz es $7$, alcanzado por $d_1$ en el estado $e_2$ y por $d_3$ en el estado $e_3$. Así, $\max_i (\max_j x_{ij}) = 7 \Rightarrow (d_1, d_3)$ |
+
+| **3.5** | **FALSA** | Como se puede ver, ningùn criterio elige $d_1$ como la mejor en el caso desfavorable |
+
+
+---
+
+# RESOLUCIÓN DEL PROBLEMA 2
+
+## Definición del Problema Real ("AgroTech Soluciones")
+
+Planteamos el siguiente problema considerando primero las alternativas y luego los estados de la naturaleza:
+
+* d1: gimnasio McFit
+
+* d2: gimnasio Sway
+
+* e1: Luca y Mario se van a entrenar durante 1 año
+
+* e2: Luca y Mario no se van a entrenar màs despues de 6 meses
+
+Ahora planteamos la tabla de valoraciones:
+
+* Alternativa d1:
+  + e1: $30\cdot6 + 50\cdot6 = 480$ euros
+  + e2: $30\cdot6 + 50\cdot0 = 180$ euros
+
+* Alternativa d2:
+  + e1: $0\cdot1 + 40\cdot11 = 440$ euros
+  + e2: $0\cdot1 + 40\cdot5 = 200$ euros
+
+```{r}
+#| label: planteamiento del problema 2
+tabla2 <- crea.tablaX(c(480, 180, 
+                        440, 200), numalternativas = 2, numestados = 2)
+```
+
+Vamos ahora a aplicar los criterios de decisión bajo incertidumbre para el problema planteado.
+
+```{r}
+#| label: aplicaciòn de los criterios
+criterio.Todos(tabla2, F)
+```
+
+Como se puede entender claramente de el enunciado del problema, Luca es optimista y asì va a elegir cel gimnasio McFit on el criterio optimista, mientras Mario va a elegir cel gimnasio McFit on el criterio de Savage, porque quiere el minimo arrepentimiento. Aunque, las afirmaciones 1, 4 son verdaderas y las 3 y 5 son falsas.
+
+Además, como podemos ver en el resultado de la aplicaciòn de todos los criterios, el gimnasio McFit resulta seleccionado por más criterios que el gimnasio Sway, asì la afirmaciòn 2 es verdadera.
+---
+
+## Respuestas Verdaderas / Falsas del Cuestionario del Problema 2
+
+| Pregunta | Respuesta | Justificación Detallada |
+| :---: | :---: | :--- |
+| **2.1** | **VERDADERA** | Los mínimos beneficios garantizados en el peor escenario ($e_1$) son: $d_1: 30$, $d_2: 10$, $d_3: 45$, $d_4: -15$. El Criterio Pesimista de Wald elige el máximo de estos valores, que es $45$, correspondiente a **$d_3$ ("Software de Gestión")**. |
+| **2.2** | **FALSA** | En la tabla resumen de `criterio.Todos`, las alternativas óptimas son: Wald ($d_3$), Optimista ($d_4$), Hurwicz ($d_3$), Savage ($d_2$), Laplace ($d_4$), Punto Ideal ($d_2$). Las alternativas $d_2, d_3, d_4$ son óptimas $2$ veces cada una, mientras que $d_1$ aparece **0 veces**. Por lo tanto, $d_1$ no es la más veces óptima. |
+| **2.3** | **VERDADERA** | Las ganancias máximas por columna son $e_1: 45$, $e_2: 105$, $e_3: 140$. La matriz de arrepentimientos (Savage) es:<br>- $d_1: (15, 40, 60) \rightarrow \max = 60$<br>- $d_2: (35, 15, 30) \rightarrow \max = 35$<br>- $d_3: (0, 50, 80) \rightarrow \max = 80$<br>- $d_4: (60, 0, 0) \rightarrow \max = 60$.<br>Para obtener el menor arrepentimiento se debe elegir la alternativa $d_2$, ya que $\min(60, 35, 80, 60) = 35$. Por tanto, **$d_2$ es la solución óptima de Savage**. |
+| **2.4** | **FALSA** | Los beneficios medios esperados (Laplace) para cada proyecto son:<br>- $d_1: (30+65+80)/3 = 58.33$<br>- $d_2: (10+90+110)/3 = 70.00$<br>- $d_3: (45+55+60)/3 = 53.33$<br>- $d_4: (-15+105+140)/3 = 76.67$.<br>El valor máximo medio corresponde a **$d_4$ ("Drones de Monitoreo")** con $76.67$, no a $d_2$. |
+| **2.5** | **VERDADERA** | El Punto Ideal es $(45, 105, 140)$. La distancia para $d_2$ es $d(d_2) = \sqrt{(45-10)^2 + (105-90)^2 + (140-110)^2} = \sqrt{1225+225+900} = \sqrt{2350} \approx 48.48$. La distancia para $d_4$ es $d(d_4) = \sqrt{(45 - (-15))^2 + 0 + 0} = \sqrt{3600} = 60.00$. Como $48.48 < 60.00$, la distancia es **efectivamente menor para $d_2$**. |
+
+
