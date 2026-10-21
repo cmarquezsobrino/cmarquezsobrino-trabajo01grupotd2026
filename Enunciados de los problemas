@@ -1,0 +1,61 @@
+---
+title: "Enunciados de los problemas"
+format:
+  html:
+    embed-resources: true
+    include-in-header:
+      - text: "<style>table { width: auto !important; margin: auto; border-collapse: collapse; } thead { border: none !important; } th, td { border: 1px solid black !important; font-weight: normal; }</style>"
+  typst:
+    toc: true
+    mainfont: "New Computer Modern"
+    include-in-header:
+      - text: "#set table.cell(stroke: 0.5pt + black)"
+---
+
+
+
+
+
+
+# Problema 3
+
+Aplicar los criterios de decisión bajo incertidumbre por separado, tanto en caso favorable como en caso desfavorable, para el problema cuya matriz de valores numéricos viene dada en la tabla siguiente:
+
+::: {.decisione}
+
+|       | $e_1$ | $e_2$ | $e_3$ | $e_4$ |
+|:-----:|:-----:|:-----:|:-----:|:-----:|
+| $d_1$ |   1   |   7   |   3   |   0   |
+| $d_2$ | $-2$  |   1   |   5   |   4   |
+| $d_3$ |   6   | $-8$  |   7   |   2   |
+| $d_4$ | $-5$  |   0   |   3   | $-1$  |
+
+:::
+
+
+Luego, responder con V o F a las siguientes afirmaciones:
+
+1. Segùn el Criterio de Wald, la mejor alternativa es la d1 en el caso favorable. (V/F)
+
+2. La alternativa d2 es la mejor segùn màs de 1 criterio en el caso favorable. (V/F)
+
+3. La alternativa d3 no es elegida en ningùn criterio en el caso desfavorable. (V/F)
+
+4. La alternativa d4 es la mejor según el Criterio Optimista en el caso favorable. 
+(V/F)
+
+5. La alternativa d1 es la mejor segùn al menos 1 criterio en el caso desfavorable. (V/F)
+
+# Problema 4
+
+Luca y Mario querrían inscribirse en el gimnasio. El gimnasio McFit ofrece un paquete de 30 euros al mes durante los primeros 4 meses, para pasar después a 50 euros al mes; en cambio, el gimnasio Sway ofrece un paquete con el primer mes gratis, para pasar después a 40 euros al mes. Ambos quieren ir durante 1 año para ponerse más fuertes. Sin embargo, nunca han sido constantes con el ejercicio físico, así que si no lo fueran podrían dejarlo después de los primeros 6 meses. Luca confía en ello, mientras que Mario es más prudente, de hecho quiere estar seguro de arrepentirse lo menos posible de su elección. Utiliza todos los criterios de decisión bajo incertidumbre y respondes a las siguientes afirmaciones:
+ 
+1. Luca elige segùn el crtierio optimista, aunque va a elegir el gimnasio McFit. (V/F)
+
+2. El gimnasio McFit resulta seleccionada por más criterios que el ggimnasio Sway. (V/F)
+
+3. Mario no es ni pesimista ni optimista, asì va a elegir el gimnasio Sway segùn el criterio de Hurwicz con  $\alpha=0{,}5$.
+
+4. Mario elige segùn el criterio de Savage, aunque va a elegir el gimnasio McFit. (V/F)
+
+5. Mario va a elegir el gimnasio Sway y Luca va a elegir el gimnasio McFit. (V/F)
