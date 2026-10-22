@@ -21,6 +21,8 @@ El presente documento recoge los enunciados de dos problemas inventados correspo
 
 - El **Problema 1** consiste en una matriz de decisión con 4 alternativas y 3 estados de la naturaleza, a resolver tanto en situación **favorable** (beneficios) como **desfavorable** (costes).
 - El **Problema 2** aborda un contexto del mundo real (sector agrotecnológico), planteando una toma de decisiones de inversión estratégica bajo incertidumbre.
+- El **Problema 3** consiste en una matriz de decisión con 4 alternativas y 4 estados de la naturaleza, a resolver tanto en situación **favorable** (beneficios) como **desfavorable** (costes).
+- El **Problema 4** es un problema real donde hay dos chicos que tengon que tomar una decision bajo incertidumbre sobre sobre el gimnasio donde se van a inscribir.
 
 Al final de cada problema se incluye un cuestionario de **5 preguntas de selección múltiple (Verdadero o Falso)**.
 
