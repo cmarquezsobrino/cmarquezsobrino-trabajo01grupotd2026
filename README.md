@@ -3,11 +3,11 @@ Esto repositorio contiene 3 documentos:
 
 1. gitignore
 2. Enunciados de los problemas
-3. Solucuiones de los problemas.
-Ademàs, contiene las execuciones en pdf y en html de los ultimos dos archivos tambìen.
+3. Soluciones de los problemas.
+Además, contiene los documentos pdf y html de los últimos dos archivos mencionados.
 
-## Contenido de "Enunciados de los problemas"
-En el segundo documento son enunciados seis problemas de decision bajo incertidumbre. El primero, el tercero y el quinto son simplemente 3 tablas de decisiòn. El segundo, el cuarto y el sesto son 3 problemas de nuestra invenciòn, donde propongamos tres situaciòn reales diferentes de decisiòn bajo incertidumbre. .En cada uno hay 5 preguntas verdaderas y falsas.
+## Contenido del documento "Enunciados de los problemas"
+En el documento se encuentran los enunciados seis problemas de decisión bajo incertidumbre. El primero, el tercero y el quinto son simplemente 3 tablas de decisión. El segundo, el cuarto y el sexto son 3 problemas inventados y ambientados en situaciones reales que pueden darse bajo ambiente de incertidumbre con distintas situaciones y diferentes alternativas. Cada de enunciado de los problemas viene acompañado de un cuestionario con 5 preguntas verdaderas y falsas.
 
-## Contenido de "Soluciones de los problemas"
-En el tercero documento son enunciados y resueltos los problemas, esplicando para cada afirmaciòn porque es verdadera o bien falsa. El primero, el tercero y el quinto son resueltos con todos los criterios de decisiòn bajo incertidumbre, cada uno con su funciòn especifica. El segundo, el cuarto y el sesto son resueltos con la funciòn general que incluye todos los criterios de decisiòn bajo incertidumbre.
+## Contenido del documento "Soluciones de los problemas"
+En el documento se encuentran las resoluciones de los problemas y las respuestas correctas de los distintos cuestionarios,  con explicaciones para cada afirmación justificando su veracidad o falsedad. El primero, el tercero y el quinto son resueltos con todos los criterios de decisión bajo incertidumbre de manera individual, cada uno con su función específica. El segundo, el cuarto y el sexto son resueltos con la función general que incluye todos los criterios de decisión bajo incertidumbre y sus resultados vienen recogidos en una tabla conjunta donde se muestran todos los criterios y la alternativa que sería óptima según cada uno.
