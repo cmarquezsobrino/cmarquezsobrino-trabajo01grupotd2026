@@ -12,7 +12,6 @@ format:
       - text: "#set table.cell(stroke: 0.5pt + black)"
 ---
 
-
 # Introducción
 
 El documento contiene los enunciados de dos problemas de **Decisión bajo Incertidumbre** junto con sus cuestionarios compuestos por 5 preguntas de selección múltiple tipo Verdadero/Falso.
