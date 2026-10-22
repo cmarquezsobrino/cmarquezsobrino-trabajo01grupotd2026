@@ -132,4 +132,3 @@ Indique la veracidad o falsedad de cada una de las siguientes afirmaciones:
 3. **Afirmación 4.3:** Mario no es ni pesimista ni optimista, así va a elegir el gimnasio segùn el **Criterio de Hurwicz** con  $\alpha=0{,}5$.
 4. **Afirmación 4.4:** Mario elige según el **Criterio de Savage**, aunque va a elegir el gimnasio **McFit**.
 5. **Afirmación 4.5:** Mario y Luca van a elegir el mismo gimnasio.
-
