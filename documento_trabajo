@@ -119,11 +119,11 @@ Se solicita analizar la toma de decisiones aplicando los seis criterios clásico
 
 Indique la veracidad o falsedad de cada una de las siguientes afirmaciones:
 
-1. **Afirmación 1.1:**  Segùn el **Criterio de Wald**, la mejor alternativa es la $d_1$ en el caso **favorable**.
-2. **Afirmación 1.2:** La alternativa $d_2$ es la mejor segùn màs de 1 criterio en el caso **favorable**.
-3. **Afirmación 1.3:** La alternativa $d_3$ no es elegida en ningùn criterio en el caso **desfavorable**.
-4. **Afirmación 1.4:** La alternativa $d_4$ es la mejor según el **Criterio Optimista** en el **caso favorable**.
-5. **Afirmación 1.5:** La alternativa $d_1$ es la mejor segùn al menos 1 criterio en el caso **desfavorable**.
+1. **Afirmación 3.1:**  Segùn el **Criterio de Wald**, la mejor alternativa es la $d_1$ en el caso **favorable**.
+2. **Afirmación 3.2:** La alternativa $d_2$ es la mejor segùn màs de 1 criterio en el caso **favorable**.
+3. **Afirmación 3.3:** La alternativa $d_3$ no es elegida en ningùn criterio en el caso **desfavorable**.
+4. **Afirmación 3.4:** La alternativa $d_4$ es la mejor según el **Criterio Optimista** en el **caso favorable**.
+5. **Afirmación 3.5:** La alternativa $d_1$ es la mejor segùn al menos 1 criterio en el caso **desfavorable**.
 
 ---
 
@@ -138,11 +138,11 @@ Se requiere evaluar la decisión mediante la función global que resuelve de for
 
 Indique la veracidad o falsedad de cada una de las siguientes afirmaciones:
 
-1. **Afirmación 4.1:** Luca elige segùn el **Critierio Optimista**, aunque va a elegir el gimnasio **McFit**.
-2. **Afirmación 4.2:** El gimnasio **McFit** resulta seleccionada por más criterios que el gimnasio **Sway**.
-3. **Afirmación 4.3:** Mario no es ni pesimista ni optimista, asì va a elegir el gimnasio segùn el **Criterio de Hurwicz** con  $\alpha=0{,}5$.
-4. **Afirmación 4.4:** Mario elige segùn el **Criterio de Savage**, aunque va a elegir el gimnasio **McFit**.
-5. **Afirmación 4.5:** Luca va a elegir el gimnasio **Sway** y Luca va a elegir el gimnasio **McFit**.
+1. **Afirmación 2.1:** Luca elige segùn el **Critierio Optimista**, aunque va a elegir el gimnasio **McFit**.
+2. **Afirmación 2.2:** El gimnasio **McFit** resulta seleccionada por más criterios que el gimnasio **Sway**.
+3. **Afirmación 2.3:** Mario no es ni pesimista ni optimista, asì va a elegir el gimnasio segùn el **Criterio de Hurwicz** con  $\alpha=0{,}5$.
+4. **Afirmación 2.4:** Mario elige segùn el **Criterio de Savage**, aunque va a elegir el gimnasio **McFit**.
+5. **Afirmación 2.5:** Mario y Luca van a elegir el mismo gimnasio.
 
 Soluciones:
 ---
@@ -492,36 +492,35 @@ sol_p3_des_ptoideal
 
 | **3.5** | **FALSA** | Como se puede ver, ningùn criterio elige $d_1$ como la mejor en el caso desfavorable |
 
-
 ---
 
-# RESOLUCIÓN DEL PROBLEMA 2
+# RESOLUCIÓN DEL PROBLEMA 4
 
-## Definición del Problema Real ("AgroTech Soluciones")
+## Definición del Problema Real (Elección de gimnasio)
 
 Planteamos el siguiente problema considerando primero las alternativas y luego los estados de la naturaleza:
 
-* d1: gimnasio McFit
+* $d_1$: gimnasio **McFit**
 
-* d2: gimnasio Sway
+* $d_2$: gimnasio **Sway**
 
-* e1: Luca y Mario se van a entrenar durante 1 año
+* $e_1$: Luca y Mario se van a entrenar durante **1 año**
 
-* e2: Luca y Mario no se van a entrenar màs despues de 6 meses
+* $e_2$: Luca y Mario no se van a entrenar màs despues de **6 meses**
 
 Ahora planteamos la tabla de valoraciones:
 
-* Alternativa d1:
-  + e1: $30\cdot6 + 50\cdot6 = 480$ euros
-  + e2: $30\cdot6 + 50\cdot0 = 180$ euros
+* Alternativa $d_1$:
+  + $e_1$: $30\cdot6 + 50\cdot6 = 480$ euros
+  + $e_2$: $30\cdot6 + 50\cdot0 = 180$ euros
 
-* Alternativa d2:
-  + e1: $0\cdot1 + 40\cdot11 = 440$ euros
-  + e2: $0\cdot1 + 40\cdot5 = 200$ euros
+* Alternativa $d_2$:
+  + $e_1$: $0\cdot1 + 40\cdot11 = 440$ euros
+  + $e_2$: $0\cdot1 + 40\cdot5 = 200$ euros
 
 ```{r}
-#| label: planteamiento del problema 2
-tabla2 <- crea.tablaX(c(480, 180, 
+#| label: planteamiento del problema 4
+tb04 <- crea.tablaX(c(480, 180, 
                         440, 200), numalternativas = 2, numestados = 2)
 ```
 
@@ -529,22 +528,18 @@ Vamos ahora a aplicar los criterios de decisión bajo incertidumbre para el prob
 
 ```{r}
 #| label: aplicaciòn de los criterios
-criterio.Todos(tabla2, F)
+criterio.Todos(tb04, alfa = 0.5, F)
 ```
 
-Como se puede entender claramente de el enunciado del problema, Luca es optimista y asì va a elegir cel gimnasio McFit on el criterio optimista, mientras Mario va a elegir cel gimnasio McFit on el criterio de Savage, porque quiere el minimo arrepentimiento. Aunque, las afirmaciones 1, 4 son verdaderas y las 3 y 5 son falsas.
-
-Además, como podemos ver en el resultado de la aplicaciòn de todos los criterios, el gimnasio McFit resulta seleccionado por más criterios que el gimnasio Sway, asì la afirmaciòn 2 es verdadera.
 ---
 
-## Respuestas Verdaderas / Falsas del Cuestionario del Problema 2
+## Respuestas Verdaderas / Falsas del Cuestionario del Problema 4
 
 | Pregunta | Respuesta | Justificación Detallada |
 | :---: | :---: | :--- |
-| **2.1** | **VERDADERA** | Los mínimos beneficios garantizados en el peor escenario ($e_1$) son: $d_1: 30$, $d_2: 10$, $d_3: 45$, $d_4: -15$. El Criterio Pesimista de Wald elige el máximo de estos valores, que es $45$, correspondiente a **$d_3$ ("Software de Gestión")**. |
-| **2.2** | **FALSA** | En la tabla resumen de `criterio.Todos`, las alternativas óptimas son: Wald ($d_3$), Optimista ($d_4$), Hurwicz ($d_3$), Savage ($d_2$), Laplace ($d_4$), Punto Ideal ($d_2$). Las alternativas $d_2, d_3, d_4$ son óptimas $2$ veces cada una, mientras que $d_1$ aparece **0 veces**. Por lo tanto, $d_1$ no es la más veces óptima. |
-| **2.3** | **VERDADERA** | Las ganancias máximas por columna son $e_1: 45$, $e_2: 105$, $e_3: 140$. La matriz de arrepentimientos (Savage) es:<br>- $d_1: (15, 40, 60) \rightarrow \max = 60$<br>- $d_2: (35, 15, 30) \rightarrow \max = 35$<br>- $d_3: (0, 50, 80) \rightarrow \max = 80$<br>- $d_4: (60, 0, 0) \rightarrow \max = 60$.<br>Para obtener el menor arrepentimiento se debe elegir la alternativa $d_2$, ya que $\min(60, 35, 80, 60) = 35$. Por tanto, **$d_2$ es la solución óptima de Savage**. |
-| **2.4** | **FALSA** | Los beneficios medios esperados (Laplace) para cada proyecto son:<br>- $d_1: (30+65+80)/3 = 58.33$<br>- $d_2: (10+90+110)/3 = 70.00$<br>- $d_3: (45+55+60)/3 = 53.33$<br>- $d_4: (-15+105+140)/3 = 76.67$.<br>El valor máximo medio corresponde a **$d_4$ ("Drones de Monitoreo")** con $76.67$, no a $d_2$. |
-| **2.5** | **VERDADERA** | El Punto Ideal es $(45, 105, 140)$. La distancia para $d_2$ es $d(d_2) = \sqrt{(45-10)^2 + (105-90)^2 + (140-110)^2} = \sqrt{1225+225+900} = \sqrt{2350} \approx 48.48$. La distancia para $d_4$ es $d(d_4) = \sqrt{(45 - (-15))^2 + 0 + 0} = \sqrt{3600} = 60.00$. Como $48.48 < 60.00$, la distancia es **efectivamente menor para $d_2$**. |
-
+| **4.1** | **VERDADERA** | El problema dice claramente que Luca elige segùn el **Criterio Optimista** .Ademàs, el valor màximo global entre los maximos para cada fila de la matriz es $480$, alcanzado por $d_1$ en el estado $e_1$. Así, $\max_i (\max_j x_{ij}) = 480 \Rightarrow d_1$. Aunque, Luca va a elegir el gimnasio **McFit**. |
+| **4.2** | **FALSA** | En la tabla resumen de `criterio.Todos`, las alternativas óptimas son: Wald ($d_2$), Optimista ($d_1$), Hurwicz ($d_2$), Savage ($d_2$), Laplace ($d_2$), Punto Ideal ($d_2$). La alternativa $d_2$ es óptima $5$ veces mientras que $d_1$ aparece **1 vez**. Por lo tanto, $d_1$ no es la más veces óptima. |
+| **4.3** | **FALSA** | Como se puede entender claramente de el enunciado del problema, Mario va a elegir con el Criterio de Savage, porque èl quiere el mínimo arrepentimiento. Aunque no se puede aplicar el **Criterio de Hurwicz** en este caso.  |
+| **4.4** | **VERDADERA** | Como hemos visto, Mario va a elegir segùn el **Criterio de Savage**. Los costes mìnimos por columna son $e_1: 440$, $e_2: 180$. La matriz de arrepentimientos (Savage) es:<br>- $d_1: (40, 0) \rightarrow \max = 40$<br>- $d_2: (0, 20) \rightarrow \max = 20$. Para obtener el menor arrepentimiento se debe elegir la alternativa $d_2$, ya que $\min(40, 20) = 20$. Por tanto, **el gimnasio McFit es la solución óptima de Savage**. |
+| **4.5** | **FALSA** | Como consecuencia de lo que hemos dicho ahora, Mario va a elegir el gimnasio Sway con el Criterio de Savage, y Luca va a elegir el gimnasio McFit con el Criterio Optimista. Por lo tanto, la afirmación es falsa. |
 
