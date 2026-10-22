@@ -11,8 +11,10 @@ output:
     toc: true
   html_document:
     toc: true
+    toc_float: true
     toc_depth: 2
     theme: readable
+    code_folding: show
 ---
 
 # Introducción
@@ -140,28 +142,14 @@ Se requiere evaluar la decisión mediante la función global que resuelve de for
 
 Indique la veracidad o falsedad de cada una de las siguientes afirmaciones:
 
-1. **Afirmación 2.1:** Luca elige segùn el **Critierio Optimista**, aunque va a elegir el gimnasio **McFit**.
-2. **Afirmación 2.2:** El gimnasio **McFit** resulta seleccionada por más criterios que el gimnasio **Sway**.
-3. **Afirmación 2.3:** Mario no es ni pesimista ni optimista, asì va a elegir el gimnasio segùn el **Criterio de Hurwicz** con  $\alpha=0{,}5$.
-4. **Afirmación 2.4:** Mario elige segùn el **Criterio de Savage**, aunque va a elegir el gimnasio **McFit**.
-5. **Afirmación 2.5:** Mario y Luca van a elegir el mismo gimnasio.
+1. **Afirmación 4.1:** Luca elige segùn el **Critierio Optimista**, aunque va a elegir el gimnasio **McFit**.
+2. **Afirmación 4.2:** El gimnasio **McFit** resulta seleccionada por más criterios que el gimnasio **Sway**.
+3. **Afirmación 4.3:** Mario no es ni pesimista ni optimista, asì va a elegir el gimnasio segùn el **Criterio de Hurwicz** con  $\alpha=0{,}5$.
+4. **Afirmación 4.4:** Mario elige segùn el **Criterio de Savage**, aunque va a elegir el gimnasio **McFit**.
+5. **Afirmación 4.5:** Mario y Luca van a elegir el mismo gimnasio.
 
 Soluciones:
----
-title: 'Trabajo Individual: Teoría de la Decisión bajo Incertidumbre'
-author: "Adrián Avelino Martín"
-subtitle: Documento de Soluciones y Código en R
-output:
-  pdf_document:
-    toc: true
-  typst:
-    toc: true
-  html_document:
-    toc: true
-    toc_float: true
-    theme: flatly
-    code_folding: show
----
+
 # Carga de Funciones y Entorno
 
 Cargamos el script de R `teoriadecision_funciones_incertidumbre.R` donde se encuentran implementadas las funciones necesarias para resolver problemas bajo incertidumbre.
