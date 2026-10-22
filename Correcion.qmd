@@ -1,0 +1,401 @@
+---
+title: "Trabajo Grupal: Teoría de la Decisión - Soluciones"
+author: "Carmen Márquez Sobrino, Adrián Avelino Martín, Gabrielle"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    theme: cosmo
+    embed-resources: true
+  typst:
+    toc: true
+    number-sections: true
+---
+# Introducción y Carga de Funciones
+
+En este documento se presenta la resolución completa de los dos problemas de decisión bajo Incertidumbre propuestos. 
+
+
+```{r setup-funciones}
+source("teoriadecision_funciones_incertidumbre.R")
+library(knitr)
+```
+
+---
+
+# Problema 1: Matriz de Decisión 
+
+Definimos la matriz de decisión del **Problema 1**:
+
+```{r p1-datos}
+vec_p1 = c(10, 15, 7,
+            4, 20, 12,
+            8,  8, 18,
+           12,  6, 14)
+
+tb01 = crea.tablaX(vec_p1, 
+                   numalternativas = 4, 
+                   numestados = 3, 
+                   nb_alternativas = c("d1", "d2", "d3", "d4"), 
+                   nb_estados = c("e1", "e2", "e3"))
+
+kable(tb01, caption = "Matriz de Decisiones - Problema 1")
+```
+
+## Resolución en Situación Favorable (Beneficios)
+
+A continuación resolvemos el problema mediante las funciones individuales del script para situación favorable:
+
+```{r p1-favorable}
+# 1. Criterio Pesimista (Wald)
+res_wald_fav <- criterio.Wald(tb01, favorable = TRUE)
+res_wald_fav
+
+# 2. Criterio Optimista
+res_opt_fav <- criterio.Optimista(tb01, favorable = TRUE)
+res_opt_fav
+
+# 3. Criterio de Hurwicz (alfa = 0.4)
+res_hurwicz_fav <- criterio.Hurwicz(tb01, alfa = 0.4, favorable = TRUE)
+res_hurwicz_fav
+
+# 4. Criterio de Savage 
+res_savage_fav <- criterio.Savage(tb01, favorable = TRUE)
+res_savage_fav
+
+# 5. Criterio de Laplace
+res_laplace_fav <- criterio.Laplace(tb01, favorable = TRUE)
+res_laplace_fav
+
+# 6. Criterio del Punto Ideal
+res_pi_fav <- criterio.PuntoIdeal(tb01, favorable = TRUE)
+res_pi_fav
+```
+
+### Análisis de Intervalos del Criterio de Hurwicz (Favorable)
+
+
+```{r p1-hurwicz-intervalos-fav}
+# Representación gráfica y líneas de decisión
+dibuja.criterio.Hurwicz(tb01, favorable = TRUE)
+
+# Obtención de los puntos de intersección
+dibuja.criterio.Hurwicz_Intervalos(tb01, favorable = TRUE)
+```
+
+---
+
+## Resolución en Situación Desfavorable (Costes)
+
+Ahora realizamos la resolución considerando que los valores representan costes (caso desfavorable):
+
+```{r p1-desfavorable}
+# 1. Criterio Pesimista (Wald / Minimax)
+res_wald_des <- criterio.Wald(tb01, favorable = FALSE)
+res_wald_des
+
+# 2. Criterio Optimista
+res_opt_des <- criterio.Optimista(tb01, favorable = FALSE)
+res_opt_des
+
+# 3. Criterio de Hurwicz (alfa = 0.4)
+res_hurwicz_des <- criterio.Hurwicz(tb01, alfa = 0.4, favorable = FALSE)
+res_hurwicz_des
+
+# 4. Criterio de Savage
+res_savage_des <- criterio.Savage(tb01, favorable = FALSE)
+res_savage_des
+
+# 5. Criterio de Laplace
+res_laplace_des <- criterio.Laplace(tb01, favorable = FALSE)
+res_laplace_des
+
+# 6. Criterio del Punto Ideal
+res_pi_des <- criterio.PuntoIdeal(tb01, favorable = FALSE)
+res_pi_des
+```
+
+### Análisis de Intervalos del Criterio de Hurwicz (Desfavorable)
+
+```{r p1-hurwicz-intervalos-des}
+# Representación gráfica y líneas de decisión
+dibuja.criterio.Hurwicz(tb01, favorable = FALSE)
+
+# Obtención de los puntos de intersección
+dibuja.criterio.Hurwicz_Intervalos(tb01, favorable = FALSE)
+```
+
+---
+
+## Justificación y Solución del Cuestionario 1
+
+1. **Pregunta 1:** *En situación favorable (beneficios), bajo el criterio Pesimista (Wald) la alternativa óptima es $d_3$ con un valor óptimo de 8.*
+   * **Verdadero.** En beneficio, los mínimos por fila son: $d_1=7, d_2=4, d_3=8, d_4=6$. El valor máximo de estos peores resultados es $8$, correspondiente a la alternativa $d_3$.
+
+2. **Pregunta 2:** *En situación favorable, el criterio de Savage selecciona la alternativa $d_3$ como la mejor decisión.*
+   * **Falso.** La matriz de arrepentimiento presenta pérdidas máximas de oportunidad por fila de: $d_1: 11, d_2: 8, d_3: 12, d_4: 14$. El menor arrepentimiento máximo es $8$, correspondiente a $d_2$.
+
+3. **Pregunta 3:** *En situación desfavorable (costes), el criterio de Wald (Minimax) determina que la alternativa óptima es $d_4$ con un coste máximo garantizado de 14.*
+   * **Verdadero.** En costes, los costes máximos por fila son: $d_1=15, d_2=20, d_3=18, d_4=14$. El menor coste máximo  es $14$, alcanzado con $d_4$.
+
+4. **Pregunta 4:** *En situación desfavorable, el criterio de Hurwicz con factor de pesimismo $\alpha=0.4$ asigna el menor coste ponderado a la alternativa $d_2$.*
+   * **Falso.** Los costes ponderados con $\alpha=0.4$ son: $d_1=11.8$, $d_2=13.6$, $d_3=14.0$, $d_4=10.8$. El menor coste ponderado se obtiene con $d_4$, no con $d_2$.
+
+5. **Pregunta 5:** *El criterio de Laplace selecciona la misma alternativa óptima ($d_2$) tanto si el problema se plantea como de beneficios como si se plantea como de costes.*
+   * **Falso.** Las medias por alternativa son: $d_1=10.67$, $d_2=12.00$, $d_3=11.33$, $d_4=10.67$. En beneficios se elige el máximo ($d_2$), mientras que en costes se eligen las de menor coste medio ($d_1$ y $d_4$).
+
+### Respuestas Verdaderas Problema 1
+- **Pregunta 1:** V
+- **Pregunta 2:** F
+- **Pregunta 3:** V
+- **Pregunta 4:** F
+- **Pregunta 5:** F
+
+---
+
+# Problema 2: Aplicación en Entorno Real ("AgroTech Soluciones")
+
+Creamos la matriz de rendimientos económicos netos (favorable) para la empresa "AgroTech Soluciones":
+
+```{r p2-datos}
+vec_p2 = c(25, 20,  15,
+           50, 35,  10,
+           90, 40, -15,
+           35, 30,  25,
+           70, 45,  20)
+
+tb02 = crea.tablaX(vec_p2, 
+                   numalternativas = 5, 
+                   numestados = 3, 
+                   nb_alternativas = c("d1", "d2", "d3", "d4", "d5"), 
+                   nb_estados = c("e1", "e2", "e3"))
+
+kable(tb02, caption = "Matriz de Rendimientos Económicos Netos - AgroTech Soluciones")
+```
+
+## Resolución con `criterio.Todos()`
+
+```{r p2-resolucion-global}
+res_p2_todos <- criterio.Todos(tb02, alfa = 0.4, favorable = TRUE)
+kable(res_p2_todos, caption = "Resolución Global mediante criterio.Todos (alfa = 0.4)")
+```
+
+### Análisis de Intervalos del Criterio de Hurwicz (Problema 2)
+
+```{r p2-hurwicz-intervalos}
+# Representación gráfica y líneas de decisión
+dibuja.criterio.Hurwicz(tb02, favorable = TRUE)
+
+# Obtención de los puntos de intersección
+dibuja.criterio.Hurwicz_Intervalos(tb02, favorable = TRUE)
+```
+
+---
+
+## Justificación y Solución del Cuestionario 2
+
+1. **Pregunta 1:** *Bajo el criterio Pesimista (Wald), la decisión más prudente para la empresa es $d_4$ (Baterías BESS), asegurando un beneficio mínimo de 25 mil euros.*
+   * **Verdadero.** Los beneficios mínimos son: $d_1=15, d_2=10, d_3=-15, d_4=25, d_5=20$. El mayor beneficio es $25$, que se logra con $d_4$.
+
+2. **Pregunta 2:** *Con un factor de pesimismo $\alpha=0.4$, el criterio de Hurwicz selecciona la alternativa $d_3$ (Software Predictivo) como la mejor opción.*
+   * **Falso.** Los valores de Hurwicz con $\alpha=0.4$ resultan en: $d_1=19$, $d_2=26$, $d_3=27$, $d_4=29$, $d_5=40$. La mejor alternativa es $d_5$ (Proyecto Híbrido), no $d_3$.
+
+3. **Pregunta 3:** *El criterio del Punto Ideal selecciona como decisión óptima el Proyecto Híbrido ($d_5$), al ser la opción más cercana en distancia euclídea al punto (90, 45, 25).*
+   * **Verdadero.** Las distancias euclídeas al punto ideal $(90, 45, 25)$ son: $d_1 \approx 70.35$, $d_2 \approx 43.87$, $d_3 \approx 40.31$, $d_4 \approx 57.00$, $d_5 \approx 20.61$. La menor distancia corresponde a $d_5$.
+
+4. **Pregunta 4:** *La alternativa $d_5$ (Proyecto Híbrido) es la solución globalmente más robusta, al resultar óptima en la mayoría de los métodos de decisión analizados.*
+   * **Verdadero.** Como se observa en la tabla resumen devuelta por `criterio.Todos()`, $d_5$ resulta seleccionada en 5 de los 6 criterios analizados (Optimista, Hurwicz, Savage, Laplace y Punto Ideal).
+
+5. **Pregunta 5:** *Bajo el criterio de Savage, la alternativa $d_1$ (Riego Inteligente) genera un arrepentimiento máximo de sólo 20 mil euros.*
+   * **Falso.** Al evaluar el arrepentimiento frente a los máximos $(90, 45, 25)$, los pesares de $d_1$ son $(65, 25, 10)$, siendo su arrepentimiento máximo de $65$ mil euros, no de $20$.
+
+### Respuestas Verdaderas Problema 2
+- **Pregunta 1:** V
+- **Pregunta 2:** F
+- **Pregunta 3:** V
+- **Pregunta 4:** V
+- **Pregunta 5:** F
+
+# Problema 3: Matriz de Decisión 
+
+
+Construimos la matriz de decisión numéricamente definida por:
+
+$$
+X = \begin{pmatrix}
+1 & 7 & 3  & 0 \\
+-2 & 1 & 5 & 4 \\
+6 & -8 & 7 & 2 \\
+-5 & 0 & 3 & -1
+\end{pmatrix}
+$$
+
+
+```{r definicion_p3}
+tb03 = crea.tablaX(c(1,7,3,0,
+                       -2,1,5,4,
+                       6,-8,7,2,
+                       -5,0,3,-1), numalternativas = 4, numestados = 4)
+tb03
+```
+
+---
+
+## Resolución 3.1: Situación Favorable (Beneficios)
+
+A continuación, aplicamos cada función individual de decisión bajo el presupuesto de que los datos representan ganancias a maximizar.
+
+### 1. Criterio de Wald (Pesimista)
+```{r p3_fav_wald}
+sol_p3_fav_wald = criterio.Wald(tb03, favorable = TRUE)
+sol_p3_fav_wald
+```
+
+### 2. Criterio Optimista
+```{r p3_fav_opt}
+sol_p3_fav_opt = criterio.Optimista(tb03, favorable = TRUE)
+sol_p3_fav_opt
+```
+
+### 3. Criterio de Hurwicz ($\alpha = 0.5$)
+```{r p3_fav_hurwicz}
+sol_p3_fav_hurwicz = criterio.Hurwicz(tb03, alfa = 0.5, favorable = TRUE)
+sol_p3_fav_hurwicz
+```
+
+#### Análisis gráfico e intervalos de Hurwicz (Favorable)
+
+```{r p3-hurwicz-intervalos-fav}
+# Representación gráfica y líneas de decisión
+dibuja.criterio.Hurwicz(tb03, favorable = TRUE)
+
+```
+
+### 4. Criterio de Savage
+```{r p3_fav_savage}
+sol_p3_fav_savage = criterio.Savage(tb03, favorable = TRUE)
+sol_p3_fav_savage
+```
+
+### 5. Criterio de Laplace
+```{r p3_fav_laplace}
+sol_p3_fav_laplace = criterio.Laplace(tb03, favorable = TRUE)
+sol_p3_fav_laplace
+```
+
+### 6. Criterio del Punto Ideal
+```{r p3_fav_ptoideal}
+sol_p3_fav_ptoideal = criterio.PuntoIdeal(tb03, favorable = TRUE)
+sol_p3_fav_ptoideal
+```
+
+---
+
+## Resolución 3.2: Situación Desfavorable (Costes)
+
+Ahora resolvemos el problema considerando que los datos representan costes o pérdidas a minimizar.
+
+### 1. Criterio de Wald (Pesimista / Minimax Costes)
+```{r p3_desfav_wald}
+sol_p3_des_wald = criterio.Wald(tb03, favorable = FALSE)
+sol_p3_des_wald
+```
+
+### 2. Criterio Optimista (Minimin Costes)
+```{r p3_desfav_opt}
+sol_p3_des_opt = criterio.Optimista(tb03, favorable = FALSE)
+sol_p3_des_opt
+```
+
+### 3. Criterio de Hurwicz ($\alpha = 0.5$)
+```{r p3_desfav_hurwicz}
+sol_p3_des_hurwicz = criterio.Hurwicz(tb03, alfa = 0.5, favorable = FALSE)
+sol_p3_des_hurwicz
+```
+
+#### Análisis gráfico e intervalos de Hurwicz (Desfavorable)
+```{r p3_desfav_hurwicz_grafico, fig.width=7, fig.height=5}
+dibuja.criterio.Hurwicz_Intervalos(tb03, favorable = FALSE, mostrarGrafico = TRUE)
+```
+
+### 4. Criterio de Savage 
+```{r p3_desfav_savage}
+sol_p1_des_savage = criterio.Savage(tb03, favorable = FALSE)
+sol_p1_des_savage
+```
+
+### 5. Criterio de Laplace
+```{r p3_desfav_laplace}
+sol_p3_des_laplace = criterio.Laplace(tb03, favorable = FALSE)
+sol_p3_des_laplace
+```
+
+### 6. Criterio del Punto Ideal
+```{r p3_desfav_ptoideal}
+sol_p3_des_ptoideal = criterio.PuntoIdeal(tb03, favorable = FALSE)
+sol_p3_des_ptoideal
+```
+
+---
+
+## Respuestas Verdaderas / Falsas del Cuestionario del Problema 3
+
+| Pregunta | Respuesta | Justificación Detallada |
+| :---: | :---: | :--- |
+| **3.1** | **VERDADERA** | El valor mìnimo global entre los maximos para cada fila de la matriz es $3$, alcanzado por $d_4$ en el estado $e_3$. Así, $\max_i (\max_j x_{ij}) = 3 \Rightarrow d_4$. |
+| **3.2** | **FALSA** | Es evidente que la alternativa $d_2$ no resulta como la mejor en ningùn criterio |
+| **3.3** | **VERDADERA** | El valor mìnimo global de la matriz es $-8$, alcanzado por $d_3$ en el estado $e_2$. Así, $\min_i (\min_j x_{ij}) = 7 \Rightarrow (d_1, d_3)$ |
+| **3.4** | **FALSA** | El valor máximo global de la matriz es $7$, alcanzado por $d_1$ en el estado $e_2$ y por $d_3$ en el estado $e_3$. Así, $\max_i (\max_j x_{ij}) = 7 \Rightarrow (d_1, d_3)$ |
+
+| **3.5** | **FALSA** | Como se puede ver, ningùn criterio elige $d_1$ como la mejor en el caso desfavorable |
+
+---
+
+
+## Problema 4: Caso Real (Elección de gimnasio)
+
+Planteamos el siguiente problema considerando primero las alternativas y luego los estados de la naturaleza:
+
+* $d_1$: gimnasio **McFit**
+
+* $d_2$: gimnasio **Sway**
+
+* $e_1$: Luca y Mario se van a entrenar durante **1 año**
+
+* $e_2$: Luca y Mario no se van a entrenar màs despues de **6 meses**
+
+Ahora planteamos la tabla de valoraciones:
+
+* Alternativa $d_1$:
+  + $e_1$: $30\cdot6 + 50\cdot6 = 480$ euros
+  + $e_2$: $30\cdot6 + 50\cdot0 = 180$ euros
+
+* Alternativa $d_2$:
+  + $e_1$: $0\cdot1 + 40\cdot11 = 440$ euros
+  + $e_2$: $0\cdot1 + 40\cdot5 = 200$ euros
+
+```{r}
+#| label: planteamiento del problema 4
+tb04 <- crea.tablaX(c(480, 180, 
+                        440, 200), numalternativas = 2, numestados = 2)
+```
+
+Vamos ahora a aplicar los criterios de decisión bajo incertidumbre para el problema planteado.
+
+```{r}
+#| label: aplicaciòn de los criterios
+criterio.Todos(tb04, alfa = 0.5, F)
+```
+
+---
+
+## Respuestas Verdaderas / Falsas del Cuestionario del Problema 4
+
+| Pregunta | Respuesta | Justificación Detallada |
+| :---: | :---: | :--- |
+| **4.1** | **VERDADERA** | El problema dice claramente que Luca elige segùn el **Criterio Optimista** .Ademàs, el valor màximo global entre los maximos para cada fila de la matriz es $480$, alcanzado por $d_1$ en el estado $e_1$. Así, $\max_i (\max_j x_{ij}) = 480 \Rightarrow d_1$. Aunque, Luca va a elegir el gimnasio **McFit**. |
+| **4.2** | **FALSA** | En la tabla resumen de `criterio.Todos`, las alternativas óptimas son: Wald ($d_2$), Optimista ($d_1$), Hurwicz ($d_2$), Savage ($d_2$), Laplace ($d_2$), Punto Ideal ($d_2$). La alternativa $d_2$ es óptima $5$ veces mientras que $d_1$ aparece **1 vez**. Por lo tanto, $d_1$ no es la más veces óptima. |
+| **4.3** | **FALSA** | Como se puede entender claramente de el enunciado del problema, Mario va a elegir con el Criterio de Savage, porque èl quiere el mínimo arrepentimiento. Aunque no se puede aplicar el **Criterio de Hurwicz** en este caso.  |
+| **4.4** | **VERDADERA** | Como hemos visto, Mario va a elegir segùn el **Criterio de Savage**. Los costes mìnimos por columna son $e_1: 440$, $e_2: 180$. La matriz de arrepentimientos (Savage) es:<br>- $d_1: (40, 0) \rightarrow \max = 40$<br>- $d_2: (0, 20) \rightarrow \max = 20$. Para obtener el menor arrepentimiento se debe elegir la alternativa $d_2$, ya que $\min(40, 20) = 20$. Por tanto, **el gimnasio McFit es la solución óptima de Savage**. |
+| **4.5** | **FALSA** | Como consecuencia de lo que hemos dicho ahora, Mario va a elegir el gimnasio Sway con el Criterio de Savage, y Luca va a elegir el gimnasio McFit con el Criterio Optimista. Por lo tanto, la afirmación es falsa. |
+
