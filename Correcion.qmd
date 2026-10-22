@@ -361,7 +361,7 @@ sol_p3_des_ptoideal
 ---
 
 
-## Problema 4: Caso Real (Elección de gimnasio)
+# Problema 4: Caso Real (Elección de gimnasio)
 
 Planteamos el siguiente problema considerando primero las alternativas y luego los estados de la naturaleza:
 
@@ -609,7 +609,7 @@ Debido a que con los 6 criterios realizados, la alternativa más veces óptima (
    _Talleres intensivos_ ($d_2$) con un valor ponderado de
    1.450€.
 
-### Respuestas Verdaderas Problema 5  
+### Respuestas Verdaderas Problema 6  
 - **Pregunta 1:** V
 - **Pregunta 2:** F
 - **Pregunta 3:** V
