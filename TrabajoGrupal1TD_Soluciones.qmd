@@ -232,10 +232,10 @@ Construimos la matriz de decisión numéricamente definida por:
 
 $$
 X = \begin{pmatrix}
-1 & 7 & 3  & 0 \\
--2 & 1 & 5 & 4 \\
-6 & -8 & 7 & 2 \\
--5 & 0 & 3 & -1
+ 1 &  7 & 3 &  0 \\
+-2 &  1 & 5 &  4 \\
+ 6 & -8 & 7 &  2 \\
+-5 &  0 & 3 & -1 
 \end{pmatrix}
 $$
 
@@ -398,7 +398,7 @@ kable(t(res_p4_todos), caption = "Resolución Global mediante criterio.Todos (al
 2. **Pregunta 2:** *El gimnasio McFit resulta ser seleccionado por más criterios que el gimnasio Sway.*
    * **Falso.** El criterio Sway es la alternativa óptima según más criterios, salvo en el criterio Optimista.
 3. **Pregunta 3:** *Mario no es ni pesimista ni optimista así que va a elegir el gimnasio según el criterio de Hurwicz con $alpha$=0.5.*
-   * **Falso.** Según el criterio de Hurwciz se debería elegir como alternativa óptima el gimnasio Sway, pues es el que presenta menor valor.
+   * **Falso.** Según el criterio de Hurwicz se debería elegir como alternativa óptima el gimnasio Sway, pues es el que presenta menor valor.
 4. **Pregunta 4:** *Mario elige, según el criterio de Savage, el gimnasio McFit ($d_1$).*
    * **Verdadero.** Mario elige gimnasio Sway según el criterio de Savage ya que es el que presenta menor arrepentimiento frente al McFit.
 5. **Pregunta 5:** *Mario y Luca van a elegir el mismo gimnasio*
