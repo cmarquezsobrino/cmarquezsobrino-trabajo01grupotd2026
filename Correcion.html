@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Carmen Márquez Sobrino, Adrián Avelino Martín, Gabrielle">
+<meta name="author" content="Carmen Márquez Sobrino, Adrián Avelino Martín, Gabriele Amorese">
 
 <title>Trabajo Grupal: Teoría de la Decisión - Soluciones</title>
 <style>
@@ -2379,9 +2379,15 @@ window.Quarto = {
   </ul></li>
   <li><a href="#problema-3-matriz-de-decisión" id="toc-problema-3-matriz-de-decisión" class="nav-link" data-scroll-target="#problema-3-matriz-de-decisión">Problema 3: Matriz de Decisión</a>
   <ul class="collapse">
-  <li><a href="#resolución-3.1-situación-favorable-beneficios" id="toc-resolución-3.1-situación-favorable-beneficios" class="nav-link" data-scroll-target="#resolución-3.1-situación-favorable-beneficios">Resolución 3.1: Situación Favorable (Beneficios)</a></li>
-  <li><a href="#resolución-3.2-situación-desfavorable-costes" id="toc-resolución-3.2-situación-desfavorable-costes" class="nav-link" data-scroll-target="#resolución-3.2-situación-desfavorable-costes">Resolución 3.2: Situación Desfavorable (Costes)</a></li>
-  <li><a href="#justificación-y-solución-del-problema-3" id="toc-justificación-y-solución-del-problema-3" class="nav-link" data-scroll-target="#justificación-y-solución-del-problema-3">Justificación y Solución del Problema 3</a>
+  <li><a href="#resolución-3.1-situación-favorable-beneficios" id="toc-resolución-3.1-situación-favorable-beneficios" class="nav-link" data-scroll-target="#resolución-3.1-situación-favorable-beneficios">Resolución 3.1: Situación Favorable (Beneficios)</a>
+  <ul class="collapse">
+  <li><a href="#análisis-gráfico-e-intervalos-de-hurwicz-favorable" id="toc-análisis-gráfico-e-intervalos-de-hurwicz-favorable" class="nav-link" data-scroll-target="#análisis-gráfico-e-intervalos-de-hurwicz-favorable">Análisis gráfico e intervalos de Hurwicz (Favorable)</a></li>
+  </ul></li>
+  <li><a href="#resolución-3.2-situación-desfavorable-costes" id="toc-resolución-3.2-situación-desfavorable-costes" class="nav-link" data-scroll-target="#resolución-3.2-situación-desfavorable-costes">Resolución 3.2: Situación Desfavorable (Costes)</a>
+  <ul class="collapse">
+  <li><a href="#análisis-gráfico-e-intervalos-de-hurwicz-desfavorable" id="toc-análisis-gráfico-e-intervalos-de-hurwicz-desfavorable" class="nav-link" data-scroll-target="#análisis-gráfico-e-intervalos-de-hurwicz-desfavorable">Análisis gráfico e intervalos de Hurwicz (Desfavorable)</a></li>
+  </ul></li>
+  <li><a href="#justificación-y-solución-del-cuestionario-3" id="toc-justificación-y-solución-del-cuestionario-3" class="nav-link" data-scroll-target="#justificación-y-solución-del-cuestionario-3">Justificación y Solución del Cuestionario 3</a>
   <ul class="collapse">
   <li><a href="#respuestas-verdaderas-problema-3" id="toc-respuestas-verdaderas-problema-3" class="nav-link" data-scroll-target="#respuestas-verdaderas-problema-3">Respuestas Verdaderas Problema 3</a></li>
   </ul></li>
@@ -2389,7 +2395,7 @@ window.Quarto = {
   <li><a href="#problema-4-caso-real-elección-de-gimnasio" id="toc-problema-4-caso-real-elección-de-gimnasio" class="nav-link" data-scroll-target="#problema-4-caso-real-elección-de-gimnasio">Problema 4: Caso Real (Elección de gimnasio)</a>
   <ul class="collapse">
   <li><a href="#resolución-con-criterio.todos-1" id="toc-resolución-con-criterio.todos-1" class="nav-link" data-scroll-target="#resolución-con-criterio.todos-1">Resolución con <code>criterio.Todos()</code></a></li>
-  <li><a href="#justificación-y-solución-del-problema-4" id="toc-justificación-y-solución-del-problema-4" class="nav-link" data-scroll-target="#justificación-y-solución-del-problema-4">Justificación y Solución del Problema 4</a>
+  <li><a href="#justificación-y-solución-del-cuestionario-4" id="toc-justificación-y-solución-del-cuestionario-4" class="nav-link" data-scroll-target="#justificación-y-solución-del-cuestionario-4">Justificación y Solución del Cuestionario 4</a>
   <ul class="collapse">
   <li><a href="#respuestas-verdaderas-problema-4" id="toc-respuestas-verdaderas-problema-4" class="nav-link" data-scroll-target="#respuestas-verdaderas-problema-4">Respuestas Verdaderas Problema 4</a></li>
   </ul></li>
@@ -2437,7 +2443,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>Carmen Márquez Sobrino, Adrián Avelino Martín, Gabrielle </p>
+             <p>Carmen Márquez Sobrino, Adrián Avelino Martín, Gabriele Amorese </p>
           </div>
   </div>
     
@@ -3530,8 +3536,8 @@ d1
  1 </code></pre>
 </div>
 </div>
-<section id="análisis-gráfico-e-intervalos-de-hurwicz-favorable" class="level4">
-<h4 class="anchored" data-anchor-id="análisis-gráfico-e-intervalos-de-hurwicz-favorable">Análisis gráfico e intervalos de Hurwicz (Favorable)</h4>
+<section id="análisis-gráfico-e-intervalos-de-hurwicz-favorable" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-gráfico-e-intervalos-de-hurwicz-favorable">Análisis gráfico e intervalos de Hurwicz (Favorable)</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Representación gráfica y líneas de decisión</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz</span>(tb03, <span class="at">favorable =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -3737,8 +3743,8 @@ d4
  4 </code></pre>
 </div>
 </div>
-<section id="análisis-gráfico-e-intervalos-de-hurwicz-desfavorable" class="level4">
-<h4 class="anchored" data-anchor-id="análisis-gráfico-e-intervalos-de-hurwicz-desfavorable">Análisis gráfico e intervalos de Hurwicz (Desfavorable)</h4>
+<section id="análisis-gráfico-e-intervalos-de-hurwicz-desfavorable" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-gráfico-e-intervalos-de-hurwicz-desfavorable">Análisis gráfico e intervalos de Hurwicz (Desfavorable)</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dibuja.criterio.Hurwicz_Intervalos</span>(tb03, <span class="at">favorable =</span> <span class="cn">FALSE</span>, <span class="at">mostrarGrafico =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -3764,8 +3770,8 @@ $IntervalosAlfa
 <hr>
 </section>
 </section>
-<section id="justificación-y-solución-del-problema-3" class="level2">
-<h2 class="anchored" data-anchor-id="justificación-y-solución-del-problema-3">Justificación y Solución del Problema 3</h2>
+<section id="justificación-y-solución-del-cuestionario-3" class="level2">
+<h2 class="anchored" data-anchor-id="justificación-y-solución-del-cuestionario-3">Justificación y Solución del Cuestionario 3</h2>
 <ol type="1">
 <li><strong>Pregunta 1:</strong> <em>Según el Criterio de Wald, la mejor alternativa es <span class="math inline">\(d_1\)</span> en el caso favorable.</em>
 <ul>
@@ -3930,8 +3936,8 @@ $IntervalosAlfa
 </div>
 <hr>
 </section>
-<section id="justificación-y-solución-del-problema-4" class="level2">
-<h2 class="anchored" data-anchor-id="justificación-y-solución-del-problema-4">Justificación y Solución del Problema 4</h2>
+<section id="justificación-y-solución-del-cuestionario-4" class="level2">
+<h2 class="anchored" data-anchor-id="justificación-y-solución-del-cuestionario-4">Justificación y Solución del Cuestionario 4</h2>
 <ol type="1">
 <li><strong>Pregunta 1:</strong> <em>Luca elige según el Criterio Optimista el gimnasio McFit (<span class="math inline">\(d_1\)</span>).</em>.*
 <ul>
